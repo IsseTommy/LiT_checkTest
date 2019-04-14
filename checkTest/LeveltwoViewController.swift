@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LeveltwoViewController.swift
 //  checkTest
 //
 //  Created by Tommy on 2019/04/14.
@@ -8,18 +8,21 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    
+class LeveltwoViewController: UIViewController {
+
     @IBOutlet weak var label: UILabel!
     
     let array = ["iPhone", "iPad", "Apple Watch"]
-    var number = 0
+    let imageArray = ["1", "2", "3"]
     
+    var number = 0
+    @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         label.text = array[number]
+        imageView.image = UIImage(named: imageArray[number])
     }
     
     @IBAction func nextPressed() {
@@ -29,6 +32,7 @@ class ViewController: UIViewController {
             number += 1
         }
         label.text = array[number]
+        imageView.image = UIImage(named: imageArray[number])
     }
     
     @IBAction func backPressed() {
@@ -38,22 +42,24 @@ class ViewController: UIViewController {
             number -= 1
         }
         label.text = array[number]
+        imageView.image = UIImage(named: imageArray[number])
     }
     
     @IBAction func firstPressed() {
         number = 0
         label.text = array[number]
+        imageView.image = UIImage(named: imageArray[number])
     }
     
     @IBAction func secondPressed() {
         number = 1
         label.text = array[number]
+        imageView.image = UIImage(named: imageArray[number])
     }
     
     @IBAction func thirdPressed() {
         number = 2
         label.text = array[number]
+        imageView.image = UIImage(named: imageArray[number])
     }
-
 }
-

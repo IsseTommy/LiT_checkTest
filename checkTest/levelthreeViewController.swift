@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  levelthreeViewController.swift
 //  checkTest
 //
 //  Created by Tommy on 2019/04/14.
@@ -8,52 +8,41 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    
+class levelthreeViewController: UIViewController {
+
     @IBOutlet weak var label: UILabel!
     
     let array = ["iPhone", "iPad", "Apple Watch"]
-    var number = 0
+    let imageArray = ["1", "2", "3"]
     
+    var number = 0
+    @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         label.text = array[number]
+        imageView.image = UIImage(named: imageArray[number])
     }
     
-    @IBAction func nextPressed() {
-        if number == 2 {
-            number = 0
-        } else {
-            number += 1
-        }
-        label.text = array[number]
-    }
-    
-    @IBAction func backPressed() {
+    @IBAction func leftSwiped() {
         if number == 0 {
             number = 2
         } else {
             number -= 1
         }
         label.text = array[number]
+        imageView.image = UIImage(named: imageArray[number])
     }
     
-    @IBAction func firstPressed() {
-        number = 0
+    @IBAction func rightSwiped() {
+        if number == 2 {
+            number = 0
+        } else {
+            number += 1
+        }
         label.text = array[number]
-    }
-    
-    @IBAction func secondPressed() {
-        number = 1
-        label.text = array[number]
-    }
-    
-    @IBAction func thirdPressed() {
-        number = 2
-        label.text = array[number]
+        imageView.image = UIImage(named: imageArray[number])
     }
 
 }
-
